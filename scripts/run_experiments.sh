@@ -54,6 +54,9 @@ trap cleanup_all_clusters EXIT
 echo "Starting experiments..."
 bash scripts/download_data.sh
 
+run_hadoop_cluster "${CONFIG_1NODE}"
+run_spark_jobs "${CONFIG_1NODE}"
+cleanup_cluster "${CONFIG_1NODE}"
 
 run_hadoop_cluster "${CONFIG_3NODE}"
 run_spark_jobs "${CONFIG_3NODE}"
